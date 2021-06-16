@@ -18,7 +18,6 @@
 
 ## Start Frontend
 
-> NB : In package.json, replace start by start-win (on W10). 
 ```
 cd frontend
 npm install
