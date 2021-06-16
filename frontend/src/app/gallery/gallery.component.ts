@@ -11,6 +11,7 @@ export class GalleryComponent implements OnInit {
   Items: any;
   lazyTargets: any;
   cursor: any;
+  Name!: string;
   ngOnInit() {
     this.apiService.getImage("").subscribe((result: any) => {
       this.Items = result.data.collections.edges;

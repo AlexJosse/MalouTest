@@ -1,16 +1,5 @@
 <style>
-    .button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
+
     </style>
 <nav
   class="row justify-content-around bg-dark align-items-center"
@@ -27,7 +16,11 @@
       class="col-lg-3 col-md-6 col-sm-12 border m-3"
       *ngFor="let item of Items"
     >
+    <div class="container">
       <img alt="" [lazyLoad]="item.node.coverImage" class="lazy-loading" style="width:100%; height:100%"/>
+      
+  <div class="centered">{{item.node.name}}</div>
+</div>
     </div>
     <button class="button" (click)="loadMore()">Load More Collections</button>
   </div>
