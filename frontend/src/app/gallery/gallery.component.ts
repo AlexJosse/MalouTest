@@ -10,15 +10,23 @@ export class GalleryComponent implements OnInit {
   constructor(private apiService: ApiService) {}
   Items: any;
   lazyTargets: any;
+  cursor: any;
   ngOnInit() {
-    this.apiService.getImage().subscribe((result: any) => {
+    this.apiService.getImage("").subscribe((result: any) => {
       this.Items = result.data.collections.edges;
-      console.log(this.Items);
+      this.cursor = result.data.collections.pageInfo.endCursor;
     });
 
     // this.lazyTargets = document.querySelectorAll(".lazy-loading");
     // console.log(this.lazyTargets);
     // this.lazyTargets.forEach(lazyTarget => this.lazyLoad(lazyTarget));
+  }
+
+  loadMore() {
+    this.apiService.getImage(this.cursor).subscribe((result: any) => {
+      this.Items = this.Items.concat(result.data.collections.edges);
+      this.cursor = result.data.collections.pageInfo.endCursor;
+    });
   }
 
   lazyLoad(target: Element) {

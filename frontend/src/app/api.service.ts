@@ -9,9 +9,9 @@ export class ApiService {
   Key = "fdf429cca1201279179e94e631ceaf652780d35275fec51707aaeca1a23e0f0f";
   page = 1;
   per_page = 21;
-  getImage() {
+  getImage(cursor : string) {
     return this.httpClient.get(
-      `http://localhost:3000/api/collections`
+      `http://localhost:3000/api/collections/${cursor}`
     );
   }
 }

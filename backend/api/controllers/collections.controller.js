@@ -9,7 +9,6 @@ const {
     const getCollectionsHandler = async (req, res, next) => {
     try {
         const { cursor } = req.params;
-        console.log(cursor);
         const collections = await getCollections(cursor);
         res.status(200).json(collections);
     } catch (err) {

@@ -26,9 +26,7 @@ const token = () => {
         grant_type: grantType
       }, options)
       .then((response) => {
-        console.log('token : ', response.data.access_token);
         localStorage.setItem('token', response.data.access_token);
-       console.log(localStorage.getItem('token'));
       }, (error) => {
         console.log(error);
       });
