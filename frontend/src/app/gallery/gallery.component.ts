@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from "../api.service";
 
 @Component({
@@ -7,6 +8,7 @@ import { ApiService } from "../api.service";
   styleUrls: ["./gallery.component.scss"]
 })
 export class GalleryComponent implements OnInit {
+  faSearch = faSearch;
   constructor(private apiService: ApiService) {}
   Items: any;
   lazyTargets: any;
@@ -28,6 +30,10 @@ export class GalleryComponent implements OnInit {
       this.Items = this.Items.concat(result.data.collections.edges);
       this.cursor = result.data.collections.pageInfo.endCursor;
     });
+  }
+
+  displayCollection(id: string) {
+    console.log(id);
   }
 
   lazyLoad(target: Element) {

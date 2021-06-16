@@ -14,4 +14,9 @@ export class ApiService {
       `http://localhost:3000/api/collections/${cursor}`
     );
   }
+  getCollection(id: string) {
+    return this.httpClient.get(
+      `http://localhost:3000/api/collections/collection/${id}`
+    );
+  }
 }
