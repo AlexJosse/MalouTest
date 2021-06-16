@@ -24,8 +24,10 @@ npm install
 ng serve
 ```
 
-## Ansible Deployment
 
 
-[:link: deployment instructions](ansible/README.md)
+## Api
 
+```
+
+```
