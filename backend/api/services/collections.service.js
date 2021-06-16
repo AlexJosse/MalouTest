@@ -16,6 +16,7 @@ const options = require('../utils/config')
             url
             description
             name
+            coverImage
         }
         }
         pageInfo {

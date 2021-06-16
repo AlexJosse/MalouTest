@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiService } from "../services/api.service";
+import { ApiService } from "../api.service";
 
 @Component({
   selector: "app-gallery",
@@ -12,8 +12,8 @@ export class GalleryComponent implements OnInit {
   lazyTargets: any;
   ngOnInit() {
     this.apiService.getImage().subscribe((result: any) => {
-      this.Items = result;
-      console.log(result);
+      this.Items = result.data.collections.edges;
+      console.log(this.Items);
     });
 
     // this.lazyTargets = document.querySelectorAll(".lazy-loading");
@@ -27,7 +27,7 @@ export class GalleryComponent implements OnInit {
         if (entry.isIntersecting) {
           const img = entry.target;
           const src = img.getAttribute("data-src");
-          img.setAttribute("src", src);
+          img.setAttribute("src", src || '');
           img.classList.add("fadeIn");
           observer.disconnect(); //entry.target
         }

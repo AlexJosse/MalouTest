@@ -11,7 +11,7 @@ export class ApiService {
   per_page = 21;
   getImage() {
     return this.httpClient.get(
-      `https://api.unsplash.com/photos/?page=${this.page}&per_page=${this.per_page}&client_id=${this.Key}`
+      `http://localhost:3000/api/collections`
     );
   }
 }
